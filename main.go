@@ -2,14 +2,14 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+
+	"github.com/oyachi/goscraper/controller"
 )
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run()
+	router := gin.Default()
+
+	router.GET("/weather", controller.GetWeatherInfo)
+
+	router.Run()
 }
